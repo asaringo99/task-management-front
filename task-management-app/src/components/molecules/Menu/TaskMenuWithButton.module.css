@@ -1,0 +1,38 @@
+.dropdownMenu {
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    max-height: 0;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease;
+    opacity: 0;
+    overflow: hidden;
+    right: 0;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdownItem {
+    color: black;
+    /* padding: 12px 16px; */
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdownMenu {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.dropdownItem:hover {
+    background-color: #ddd;
+}
+
+.buttonPosition {
+    display: flex;
+    justify-content: flex-end;
+}
