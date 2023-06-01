@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #f9f9f9;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.inputWithCounter {
+    position: relative;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 48px;
+    color: #333333;
+    position: relative;
+}
+
+.loginForm {
+    width: 400px;
+    padding: 60px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.inputGroup {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #666666;
+}
+
+.input {
+    font: optional;
+    font-size: 20px;
+    width: 100%;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 0px;
+    padding-top: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    color: #333333;
+}
+
+.counter {
+    position: absolute;
+    right: 0px;
+    bottom: 9px;
+    font-size: 14px;
+    color: #666666;
+}
+
+.button {
+    width: 100%;
+    padding: 20px 0;
+    border: none;
+    background-color: #0070f3;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.errorContainer {
+    height: 18px;
+    margin-top: 5px;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+}
