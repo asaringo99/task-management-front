@@ -7,14 +7,16 @@ import TextArea from "../../atoms/TextArea/TextArea"
 interface EditableTextProps {
     initialText: string
     isEditing: boolean
+    onEdit: (content: string) => void
 }
 
-const EditableText: FC<EditableTextProps> = ({initialText, isEditing}) => {
+const EditableText: FC<EditableTextProps> = ({initialText, isEditing, onEdit}) => {
 
     const [text, setText] = useState(initialText)
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setText(event.target.value);
+        onEdit(event.target.value);
+        setText(event.target.value)
     };
 
     return (
