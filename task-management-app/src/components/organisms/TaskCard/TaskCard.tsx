@@ -25,8 +25,8 @@ const TaskCard: FC<TaskCardProps> = ({ card, onEdit }) => {
     return (
         <div ref={drag} onClick={() => setIsEditing(true)} onBlur={() => setIsEditing(false)}>
             <CardFrame>
-                    <TaskMenuwithButton menuItems={card.menuItems}/>
-                    <EditableText initialText={card.text} isEditing={isEditing} onEdit={(content: string) => onEdit(card.id, content)}/>
+                <TaskMenuwithButton menuItems={card.menuItems}/>
+                <EditableText initialText={card.text} isEditing={isEditing} onEdit={(content: string) => onEdit(card.id, content)}/>
             </CardFrame>
         </div>
     );

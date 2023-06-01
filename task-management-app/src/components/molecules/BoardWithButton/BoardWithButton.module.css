@@ -1,6 +1,5 @@
 .board {
     /* background-color: rgb(255, 255, 255); */
-    /* /* color: rgb(198, 188, 188); */
     padding: 2px;
     border-right: 2px solid black;
     cursor: pointer;
@@ -16,7 +15,7 @@
 
 .addButton {
     color: rgb(123, 117, 117);
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     border: 10px;
     cursor: pointer;
     position: relative;
