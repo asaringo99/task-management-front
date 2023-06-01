@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, FC } from 'react';
-import MenuButton from '../../atoms/MenuButton/MenuButton'
+import MenuButton from '../../atoms/Button/MenuButton'
 import MenuItem from '../../atoms/MenuItem/MenuItem'
 import styles from './TaskMenuWithButton.module.css';
 
@@ -23,7 +23,6 @@ const TaskMenuWithButton: FC<TaskMenuWithButtonProps> = ({menuItems}) => {
             document.removeEventListener('mousedown', handleClickOutside, true);
         };
     }, []);
-
 
     return (
         <div className={styles.dropdown} ref={ref}>
