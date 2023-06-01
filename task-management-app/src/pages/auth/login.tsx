@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import Link from 'next/link';
 import styles from './login.module.css';
 
@@ -10,16 +10,18 @@ const LoginPage: React.FC = () => {
     const [hasSpecialCharacter, setHasSpecialCharactor] = useState(false);
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setUsername(e.target.value.slice(0, 15));
-        if (hasSpecialCharacter && !/^[a-zA-Z0-9]*$/.test(username)) return
+        const newUsername = e.target.value.slice(0, 15)
+        setUsername(newUsername);
+        if (hasSpecialCharacter && !/^[a-zA-Z0-9]*$/.test(newUsername)) return
         setHasSpecialCharactor(false)
-        if (username.length < 3) return
+        if (newUsername.length < 3) return
         setUsernameSubmitAttempted(false);
     };
 
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value.slice(0, 15));
-        if (password.length < 6) return
+        const newPassword = e.target.value.slice(0, 15)
+        setPassword(newPassword);
+        if (newPassword.length < 6) return
         setPasswordSubmitAttempted(false);
     };
 
@@ -29,10 +31,20 @@ const LoginPage: React.FC = () => {
     }
 
     const handleLogin = (e: React.FormEvent) => {
-        if (password.length < 6) setPasswordSubmitAttempted(true)
-        if (username.length < 3) setUsernameSubmitAttempted(true)
-        if (!/^[a-zA-Z0-9]*$/.test(username)) setHasSpecialCharactor(true)
-        if (usernameSubmitAttempted || passwordSubmitAttempted || hasSpecialCharacter) return
+        let canSubmitLoginFrom: boolean = true
+        if (password.length < 6) {
+            setPasswordSubmitAttempted(true);
+            canSubmitLoginFrom = false
+        }
+        if (username.length < 3) {
+            setUsernameSubmitAttempted(true);
+            canSubmitLoginFrom = false
+        }
+        if (!/^[a-zA-Z0-9]*$/.test(username)) {
+            setHasSpecialCharactor(true);
+            canSubmitLoginFrom = false
+        }
+        if(!canSubmitLoginFrom) return
         e.preventDefault();
         // TODO: ここで認証処理を行います
         console.log(`Username: ${username}, Password: ${password}`);
