@@ -1,0 +1,20 @@
+.board {
+    /* background-color: rgb(131, 120, 120); */
+    /* color: rgb(198, 188, 188); */
+    padding: 10px;
+    border: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    width: 300px;
+    height: 800px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.title {
+    text-align: center;
+    font-size: large;
+}
