@@ -1,11 +1,10 @@
-import { ChangeEvent, useState } from 'react';
-import Router, { useRouter } from 'next/router'
+import { ChangeEvent, useState, useEffect, FC } from 'react';
+import { useRouter } from 'next/router'
 import { postAuthData } from '../../services/auth'
 import styles from './signup.module.css';
-import { useEffect } from 'react';
-import LoadingPage from '../loading/loading';
+import LoadingPage from '../../components/atoms/Load/Load'
 
-const SignUpPage = () => {
+const SignUpPage: FC = () => {
     const router = useRouter();
 
     const [username, setUsername] = useState<string>('');

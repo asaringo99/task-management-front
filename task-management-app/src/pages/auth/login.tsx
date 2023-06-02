@@ -1,8 +1,8 @@
-import React, { use, useState } from 'react';
+import React, { FC, useState } from 'react';
 import Link from 'next/link';
 import styles from './login.module.css';
 
-const LoginPage: React.FC = () => {
+const LoginPage: FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [usernameSubmitAttempted, setUsernameSubmitAttempted] = useState(false);
