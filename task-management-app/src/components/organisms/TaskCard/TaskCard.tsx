@@ -7,6 +7,7 @@ import TaskMenuwithButton from '../../molecules/Menu/TaskMenuWithButton'
 import CardFrame from '../../atoms/CardFrame/CardFrame'
 import { CARD_TYPE } from '../../types/dndtypes'
 import { CardType } from '../../types/card'
+import styles from './TaskCard.module.css'
 
 interface TaskCardProps {
     card: CardType
@@ -23,7 +24,7 @@ const TaskCard: FC<TaskCardProps> = ({ card, onEdit }) => {
 
 
     return (
-        <div ref={drag} onClick={() => setIsEditing(true)} onBlur={() => setIsEditing(false)}>
+        <div className={styles.taskCard} ref={drag} onClick={() => setIsEditing(true)} onBlur={() => setIsEditing(false)}>
             <CardFrame>
                 <TaskMenuwithButton menuItems={card.menuItems}/>
                 <EditableText initialText={card.text} isEditing={isEditing} onEdit={(content: string) => onEdit(card.id, content)}/>

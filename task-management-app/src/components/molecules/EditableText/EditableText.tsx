@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState, useRef, useEffect, FC} from 'react';
+import React, {useState, FC} from 'react';
 import Text from "../../atoms/Text/Text"
 import TextArea from "../../atoms/TextArea/TextArea"
 

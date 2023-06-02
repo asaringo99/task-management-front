@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React  from 'react';
 import KanbanBoard from '../templates/KanbanBoard/KanbanBoard';
 import { BoardType } from '../types/board';
 import { CardType } from '../types/card';

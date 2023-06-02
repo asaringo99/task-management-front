@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, FC } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import BoardWithButton from '../../molecules/BoardWithButton/BoardWithButton';
@@ -16,7 +16,7 @@ interface KanbanBoardProps {
     initialCards: CardType[];
 }
 
-const KanbanBoard: React.FC<KanbanBoardProps> = ({ initialBoards, initialCards }) => {
+const KanbanBoard: FC<KanbanBoardProps> = ({ initialBoards, initialCards }) => {
     const[boards, setBoards] = useState<BoardType[]>(initialBoards);
     const[cards, setCards] = useState<CardType[]>(initialCards);
 

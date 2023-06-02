@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { FC } from 'react';
 import styles from './Board.module.css'
 
 interface BoardProps {
@@ -6,7 +6,7 @@ interface BoardProps {
     children?: React.ReactNode;
 }
 
-const Board: React.FC<BoardProps> = ({ title, children }) => {
+const Board: FC<BoardProps> = ({ title, children }) => {
 
     return (
         <>

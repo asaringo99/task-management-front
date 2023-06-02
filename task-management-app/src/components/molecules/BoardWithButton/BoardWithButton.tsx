@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, FC } from 'react';
+import React, { FC } from 'react';
 import { useDrop } from 'react-dnd';
 import Board from '../../atoms/Board/Board';
 import AddButton from '../../atoms/Button/AddButton';
