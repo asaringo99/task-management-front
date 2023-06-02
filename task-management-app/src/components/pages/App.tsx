@@ -12,10 +12,9 @@ const menus = [
 
 const initialBoards: BoardType[] = [
     {id: '1', title: 'Pending', cardIds: ['1', '2']},
-    {id: '2', title: 'Todo', cardIds: ['3', '4']},
-    {id: '3', title: 'In Progress', cardIds: ['5', '6']},
-    {id: '4', title: 'Closed', cardIds: ['7', '8', '9']},
-    {id: '5', title: 'Opened', cardIds: []},
+    {id: '2', title: 'Todo', cardIds: ['3', '4', '5']},
+    {id: '3', title: 'In Progress', cardIds: []},
+    {id: '4', title: 'Closed', cardIds: ['6', '7', '8', '9']},
 ];
 
 const initialCards: CardType[] = [
