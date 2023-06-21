@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
+.textarea {
+    padding: 15px;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.text {
+    font-size: larger;
+    font-weight: bolder;
+    font-style: normal;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    white-space: pre-line;
+}
+
+.checkButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkButton p {
+    cursor: pointer;
+    padding-left: 1vh;
+}
