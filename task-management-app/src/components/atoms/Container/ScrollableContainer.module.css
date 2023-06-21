@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    padding: 3%;
+    background-color:rgb(226, 226, 226);
+    overflow-y: scroll;
+    border-radius: 1.3em;
+}
