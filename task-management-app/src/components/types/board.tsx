@@ -1,5 +1,5 @@
 export interface BoardType {
     id: string;
-    title: string
-    cardIds: string[]
+    tabid: number;
+    status: string;
 }
