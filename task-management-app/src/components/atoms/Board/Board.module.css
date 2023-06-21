@@ -1,9 +1,7 @@
 .board {
-    /* background-color: rgb(131, 120, 120); */
-    /* color: rgb(198, 188, 188); */
     padding: 10px;
     border: 10px;
-    cursor: pointer;
+    cursor: auto;
     position: relative;
     overflow: hidden;
     width: 300px;
