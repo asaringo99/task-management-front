@@ -1,13 +1,23 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
+import { useRouter } from 'next/router'
 import Link from 'next/link';
 import styles from './login.module.css';
+import { postAuthData } from '../../services/auth'
+import ApiClient from '@/services/api/client';
+import { ApiResponse, DataLogin } from '@/services/api/response';
 
 const LoginPage: FC = () => {
+    const clientEntryPoint = "http://localhost:8080"
+    const apiClient = new ApiClient(clientEntryPoint, "");
+
+    const router = useRouter();
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [usernameSubmitAttempted, setUsernameSubmitAttempted] = useState(false);
     const [passwordSubmitAttempted, setPasswordSubmitAttempted] = useState(false);
     const [hasSpecialCharacter, setHasSpecialCharactor] = useState(false);
+    const [canLogin, setCanLogin] = useState(false)
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newUsername = e.target.value.slice(0, 15)
@@ -46,9 +56,29 @@ const LoginPage: FC = () => {
         }
         if(!canSubmitLoginFrom) return
         e.preventDefault();
-        // TODO: ここで認証処理を行います
-        console.log(`Username: ${username}, Password: ${password}`);
+        const payload = {
+            'username': username,
+            'password': password,
+        }
+        apiClient.post<ApiResponse<DataLogin>>('login', payload).then(response => {
+            console.log(response)
+            setCanLogin(true)
+        }).catch(error => {
+            console.log(error)
+        })
     };
+
+    useEffect(() => {
+        if(!canLogin) return
+        const redirectTimeout = setTimeout(() => {
+            console.log("-----------------")
+            console.log(document.cookie)
+            console.log("-----------------")
+            router.push('/home');
+        }, 500);
+    
+        return () => clearTimeout(redirectTimeout);
+    }, [canLogin])
 
     return (
         <div className={styles.container}>

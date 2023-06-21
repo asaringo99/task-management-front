@@ -3,9 +3,13 @@ import { useRouter } from 'next/router'
 import { postAuthData } from '../../services/auth'
 import styles from './signup.module.css';
 import LoadingPage from '../../components/atoms/Load/Load'
+import { ApiResponse, DataLogin } from '@/services/api/response';
+import ApiClient from '@/services/api/client';
 
 const SignUpPage: FC = () => {
     const router = useRouter();
+    const clientEntryPoint = "http://localhost:8080"
+    const apiClient = new ApiClient(clientEntryPoint, "");
 
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -14,7 +18,7 @@ const SignUpPage: FC = () => {
     const [passwordSubmitAttempted, setPasswordSubmitAttempted] = useState(false);
     const [confirmPasswordSubmitAttempted, setConfirmPasswordSubmitAttempted] = useState(false);
     const [hasSpecialCharacter, setHasSpecialCharactor] = useState(false);
-    const [canLogin, setCanLogin] = useState(false)
+    const [canSignup, setCanSignup] = useState(false)
 
     const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newUsername = e.target.value.slice(0, 15)
@@ -45,45 +49,48 @@ const SignUpPage: FC = () => {
     }
 
     const handleSignUp = (e: React.FormEvent) => {
-        let canSubmitLoginFrom: boolean = true
+        let canSubmitSignupFrom: boolean = true
         if (password.length < 6) {
             setPasswordSubmitAttempted(true);
-            canSubmitLoginFrom = false
+            canSubmitSignupFrom = false
         }
         if (username.length < 3) {
             setUsernameSubmitAttempted(true);
-            canSubmitLoginFrom = false
+            canSubmitSignupFrom = false
         }
         if (!/^[a-zA-Z0-9]*$/.test(username)) {
             setHasSpecialCharactor(true);
-            canSubmitLoginFrom = false
+            canSubmitSignupFrom = false
         }
         if (confirmPassword != password) {
             setConfirmPasswordSubmitAttempted(true)
-            canSubmitLoginFrom = false
+            canSubmitSignupFrom = false
         }
-        if(!canSubmitLoginFrom) return
+        if(!canSubmitSignupFrom) return
         e.preventDefault();
         const payload = {
             'username': username,
             'password': password,
         }
-        const response = postAuthData(payload, 'signup')
-        console.log(response)
-        setCanLogin(true)
+        apiClient.post<ApiResponse<any>>('signup', payload).then(response => {
+            console.log(response)
+            setCanSignup(true)
+        }).catch(error => {
+            console.log(error)
+        })
     };
 
     useEffect(() => {
-        if(!canLogin) return
+        if(!canSignup) return
         const redirectTimeout = setTimeout(() => {
             router.push('/auth/login');
-        }, 3000);
+        }, 1000);
     
         return () => clearTimeout(redirectTimeout);
-    }, [canLogin])
+    }, [canSignup])
 
     return (
-        canLogin?
+        canSignup?
         <LoadingPage text='ログインページに移動しています...'/>
         :
         <div className={styles.container}>
