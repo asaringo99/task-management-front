@@ -1,13 +1,13 @@
 .board {
     /* background-color: rgb(255, 255, 255); */
-    padding: 2px;
-    border-right: 2px solid black;
-    cursor: pointer;
+    border-right: solid black;
+    cursor: auto;
     position: relative;
     overflow: hidden;
-    width: 300px;
-    height: 1000px;
-    display: inline-block;
+    width: 35vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: background-color 0.4s ease, transform 0.4s ease;
@@ -16,7 +16,6 @@
 .addButton {
     color: rgb(123, 117, 117);
     padding-bottom: 20px;
-    border: 10px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
@@ -25,4 +24,10 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.4s ease, transform 0.4s ease;
+}
+
+.hazardButton {
+    position: absolute;
+    top: 1%;
+    right: 2%;
 }
