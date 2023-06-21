@@ -1,0 +1,30 @@
+.container {
+    height: 2.5vh;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+}
+
+.tabButton {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-style: italic;
+    position: relative;
+    white-space: pre-wrap;
+}
+
+.active {
+    font-size: larger;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    background-color: grey;
+}
+
+.deleteButton {
+    display: flex;
+    font-size: smaller;
+}
