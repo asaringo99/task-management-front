@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
-import styles from './AddButton.module.css';
+import styles from './SimpleButton.module.css';
 
-interface AddButtonProps {
+interface SimpleButtonProps {
     label: string;
     onClick: () => void;
-    opened?: boolean
 }
 
-const AddButton: FC<AddButtonProps> = ({ label, onClick}) => {
+const SimpleButton: FC<SimpleButtonProps> = ({ label, onClick}) => {
 
     return (
         <button className={`${styles.button}`} onClick={onClick}>
@@ -16,4 +15,4 @@ const AddButton: FC<AddButtonProps> = ({ label, onClick}) => {
     );
 };
 
-export default AddButton;
+export default SimpleButton;

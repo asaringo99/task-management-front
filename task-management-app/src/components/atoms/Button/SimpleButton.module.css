@@ -1,5 +1,5 @@
 .button {
-    background-color: rgba(187, 187, 187, 0.494);
+    background-color: rgb(217, 217, 217);
     color: black;
     padding: 10px;
     font-size: 16px;
@@ -17,14 +17,6 @@
 }
 
 .button:hover {
-    background-color: #625d99;
+    background-color: #29b061;
     color: white;
-}
-
-.dropdownButtonOpen {
-    background-color: #2980b9;
-    color: white;
-    max-height: 200px;
-    opacity: 1;
-    transform: rotate(90deg);
 }
