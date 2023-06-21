@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    /* gap: 20px; */
+    /* padding: 20px; */
+    /* border-radius: 4px; */
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+}
+
+.active {
+    background-color: #ddd;
+    color: #111;
+}
+
+.tabContainer {
+    height: 100vh;
+    border: 5px solid black;
+}
